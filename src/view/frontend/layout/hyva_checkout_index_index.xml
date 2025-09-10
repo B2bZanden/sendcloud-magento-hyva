@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="SendCloud_Hyva::js/service-point.js"/>
+    </head>
+    <body>
+        <block name="sendcloud_sendcloud"
+               template="SendCloud_Hyva::form.phtml"
+        >
+            <arguments>
+                <argument name="magewire" xsi:type="object">
+                    \SendCloud\Hyva\Magewire\ServicePoint
+                </argument>
+            </arguments>
+
+            <!--<block name="sendcloud_sendcloud.js"
+                   template="SendCloud_Hyva::js.phtml"
+            />-->
+
+            <block name="sendcloud_sendcloud.address"
+                   template="SendCloud_Hyva::address.phtml"
+            />
+
+            <block name="sendcloud_sendcloud.failure"
+                   template="SendCloud_Hyva::failure.phtml"
+            />
+
+            <block name="sendcloud_sendcloud.loading"
+                   template="Hyva_Theme::ui/loading.phtml"
+            />
+        </block>
+
+        <move element="sendcloud_sendcloud" destination="checkout.shipping.methods"/>
+    </body>
+</page>

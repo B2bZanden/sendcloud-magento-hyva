@@ -1,0 +1,22 @@
+{
+  "name": "sendcloud/sencloud-magento-hyva",
+  "description": "Compatibility for SendCloud in the Hyva Checkout",
+  "type": "magento2-module",
+  "version": "1.1.0",
+  "require": {
+    "magento/framework": ">=102.0.3",
+    "sendcloud/sendcloud": "^2.0",
+    "hyva-themes/magento2-compat-module-fallback": "*",
+    "hyva-themes/magento2-hyva-checkout": "^1.1"
+  },
+  "license": "Apache-2.0",
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "SendCloud\\Hyva\\": "src/"
+    }
+  }
+}
+

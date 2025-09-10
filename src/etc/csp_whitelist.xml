@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="sendcloud_servicepoints" type="host">https://servicepoints.sendcloud.sc</value>
+                <value id="sendcloud_api" type="host">https://embed.sendcloud.sc</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

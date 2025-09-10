@@ -1,0 +1,40 @@
+<?php
+
+use Hyva\Theme\ViewModel\StoreConfig;
+use SendCloud\Hyva\Magewire\ServicePoint;
+use Magento\Framework\View\Element\Template;
+use Hyva\Theme\Model\ViewModelRegistry;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+/** @var ViewModelRegistry $viewModels */
+/** @var ServicePoint $magewire */
+
+$storeConfig = $viewModels->require(StoreConfig::class);
+?>
+
+<div>
+    <div id="shipping-method-option-sendcloud-servicepoint"
+         x-data="servicePointComponent"
+         data-postal-code="<?=$magewire->postalCode?>"
+         data-keyscripturl="<?= $escaper->escapeHtml($storeConfig->getStoreConfig('sendcloud/sendcloud/script_url')); ?>"
+    >
+        <button type="button" class="btn btn-primary bg-green-600 hover:bg-green-500"
+                x-show="scriptsLoaded"
+                @click="sendcloudOpen"
+        >
+            <?= $escaper->escapeHtml(__("Select servicepoint")) ?>
+        </button>
+
+        <div x-show="servicePointAddressData.sendcloud_service_point_id">
+            <?= $block->getChildHtml("sendcloud_sendcloud.address") ?>
+        </div>
+
+        <div x-show="failure">
+            <?= $block->getChildHtml("sendcloud_sendcloud.failure") ?>
+        </div>
+
+        <?= $block->getChildHtml("sendcloud_sendcloud.loading") ?>
+    </div>
+</div>
