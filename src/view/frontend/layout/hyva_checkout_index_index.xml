@@ -15,10 +15,6 @@
                 </argument>
             </arguments>
 
-            <!--<block name="sendcloud_sendcloud.js"
-                   template="SendCloud_Hyva::js.phtml"
-            />-->
-
             <block name="sendcloud_sendcloud.address"
                    template="SendCloud_Hyva::address.phtml"
             />
