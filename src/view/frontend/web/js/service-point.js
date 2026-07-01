@@ -1,5 +1,3 @@
-
-
 function servicePointComponent() {
     return {
         keyScriptLoaded: !!document.getElementById('sendcloudkeyscriptloaded'),
@@ -70,12 +68,14 @@ function servicePointComponent() {
                 document.head.appendChild(script);
             }
 
-            this.scriptsLoaded = false;
+            this.checkScriptLoaded();
         },
         sendcloudOpen() {
             let lang = document.documentElement.lang;
-            if(!(lang === 'en' || lang === 'fr' || lang === 'nl' || lang === 'de')){
-                lang = 'en'
+            let availableLanguages = ['en', 'fr', 'nl', 'de'];
+
+            if (!(availableLanguages.includes(lang))) {
+                lang = 'en';
             }
 
             const config = {
