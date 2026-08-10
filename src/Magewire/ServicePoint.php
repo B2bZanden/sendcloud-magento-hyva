@@ -18,7 +18,8 @@ class ServicePoint extends Component implements EvaluationInterface
     ];
 
     protected $listeners = [
-        'shipping_address_saved' => 'refresh'
+        'shipping_address_saved' => 'refresh',
+        'shipping_address_activated' => 'refresh'
     ];
 
     /**
@@ -38,9 +39,10 @@ class ServicePoint extends Component implements EvaluationInterface
         ];
     }
 
-    public function boot(): void
+    public function booted(): void
     {
         $shippingAddress = $this->sessionCheckout->getQuote()->getShippingAddress();
+
         $this->postalCode = $shippingAddress->getPostcode();
         $this->country = $shippingAddress->getCountryId();
     }
